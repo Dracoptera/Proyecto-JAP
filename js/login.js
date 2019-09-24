@@ -77,16 +77,21 @@
 
 // ACCESO DE USUARIO VÁLIDO
 
+let user = form.username.value;
+let pwd = form.pass.value;
 
 // CONTRASEÑA Y USUARIO: admin
 
 function validate(form) {
-    if (form.username.value=="admin") { 
-    if (form.pass.value=="admin") {              
     location="index.html" 
-    } else {
-    alert("Contraseña inválida")
     }
-    } else {  alert("Usuario inválido")
-    }
-    }
+
+
+    // if (form.username.value=="admin") { 
+    //     if (form.pass.value=="admin") {              
+    //     location="index.html" 
+    //     } else {
+    //     alert("Contraseña inválida")
+    //     }
+    //     } else {  alert("Usuario inválido")
+    //     }

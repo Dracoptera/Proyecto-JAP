@@ -76,14 +76,13 @@
 
 
 // ACCESO DE USUARIO VÁLIDO
-
-let user = form.username.value;
-let pwd = form.pass.value;
-
+let pwd = localStorage.setItem(form.pass.value);
 // CONTRASEÑA Y USUARIO: admin
 
 function validate(form) {
     location="index.html" 
+    let user = document.getElementById('usuario').value;
+    localStorage.setItem("userVal", user);
     }
 
 
@@ -95,3 +94,4 @@ function validate(form) {
     //     }
     //     } else {  alert("Usuario inválido")
     //     }
+localStorage.clear()

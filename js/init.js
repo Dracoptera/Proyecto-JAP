@@ -39,3 +39,6 @@ var getJSONData = function(url){
         return result;
     });
 }
+
+let userHTML = document.querySelector("#nombre-usuario");
+userHTML.textContent = localStorage.getItem("userVal");

@@ -22,10 +22,12 @@ function updateTotalCosts(){
 function updateSubtotal(cost){
 
     let subtotalHTML = document.querySelector("#currentSubtotal")
+    let subtotalBox = document.querySelector("#boxSubtotal")
     let count = document.querySelector("#currentCount").value
     let newSubtotal = count * cost 
 
     subtotalHTML.innerHTML = MONEY_SYMBOL + ` ` + newSubtotal
+    subtotalBox.innerHTML = MONEY_SYMBOL + ` ` + newSubtotal
     
 }
 

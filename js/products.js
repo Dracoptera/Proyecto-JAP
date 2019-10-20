@@ -43,6 +43,8 @@ function showProductsList(){
             ((maxCost == undefined) || (maxCost != undefined && parseInt(product.cost) <= maxCost))){
 
             htmlContentToAppend += `
+            <div class="list-group col-sm-6">
+  
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
@@ -58,6 +60,8 @@ function showProductsList(){
                     </div>
                 </div>
             </a>
+
+            </div>
             `
         }
 

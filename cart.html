@@ -57,14 +57,35 @@
               </div>
           </div>
         </nav>
+
     <main role="main">
-		<div class="container mt-5">
-			<div class="alert alert-danger" role="alert">
-				<h4 class="alert-heading">¡A trabajar! :)</h4>
-				<p>Esta sección corresponde a: 3era y 4ta. Entrega (Fecha: 20/10/2019 y 24/11/2019)</p>
-				<hr>
-				<p class="mb-0">Fijate en la letra qué debes hacer <a target="_blank" href="Letra.pdf">aquí</a>.</p>
-			</div>
+		<div class="container">
+
+      <div class="text-center p-4">
+        <h2>Carrito de compras</h2>
+      </div>
+
+        
+        <h4>Artículos en el carrito</h4>
+
+        <div class="justify-content-md-center">
+        <table class="carrito table table-hover">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Cantidad</th>
+              <th>Costo</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="articleContainer">
+          <!-- AQUÍ SE AÑADIRÁN LOS ARTÍCULOS DESDE JS.  -->
+          </tbody>
+        </table>
+      </div>
+    
+
+      </div>
 		</div>
     </main>
       <footer class="text-muted">
@@ -83,7 +104,6 @@
               </button>
             </div>
             <div class="modal-body">
-              <div class="container">
                   <div class="row">
                     <div class="custom-control custom-radio">
                       <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">

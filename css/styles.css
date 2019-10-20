@@ -134,3 +134,9 @@ a.custom-card:hover {
     text-align: center;
   }
 }
+
+#carrito {
+  padding: 5%;
+  align-content: center;
+  margin: 5%;
+}

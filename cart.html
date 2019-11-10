@@ -181,9 +181,9 @@
               </button>
             </div>
             <div class="modal-body">
-                  <div class="row">
+                  <div class="row p-2">
                     <div class="custom-control custom-radio">
-                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
+                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input" onclick="hidePaymentTypeNotSelected()">
                       <label class="custom-control-label" for="creditCardPaymentRadio">Tarjeta de crédito</label>
                     </div>
                   </div>
@@ -207,13 +207,41 @@
                   <div class="row">
                       <div class="col-md-6 mb-3">
                         <label for="dueDate">Vencimiento (MM/AA)</label>
-                        <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
+                        <!-- <input type="text" class="form-control" id="dueDate" placeholder="" value="" > -->
+                        <div class="form-group row" id="dueDate">
+                          <div class="col-xs-2 p-2">
+                          <select class="form-control" id="expMonth">
+                              <option value="01">Enero</option>
+                              <option value="02">Febrero </option>
+                              <option value="03">Marzo</option>
+                              <option value="04">Abril</option>
+                              <option value="05">Mayo</option>
+                              <option value="06">Junio</option>
+                              <option value="07">Julio</option>
+                              <option value="08">Augosto</option>
+                              <option value="09">Septiembre</option>
+                              <option value="10">Octubre</option>
+                              <option value="11">Noviembre</option>
+                              <option value="12">Deciembre</option>
+                          </select>
+                        </div>
+                          <div class="col-xs-2 p-2">
+                          <select class="form-control" id="expYear">
+                              <option value="16"> 2019</option>
+                              <option value="17"> 2020</option>
+                              <option value="18"> 2021</option>
+                              <option value="19"> 2022</option>
+                              <option value="20"> 2023</option>
+                              <option value="21"> 2024</option>
+                          </select>
+                        </div>
+                      </div>
                         <div class="invalid-feedback">
                           Ingresa la fecha de vencimiento
                         </div>
                       </div>
                   </div>
-                  <div class="row">
+                  <div class="row p-2">
                     <div class="custom-control custom-radio">
                       <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
                       <label class="custom-control-label" for="bankingRadio">Transferencia bancaria</label>

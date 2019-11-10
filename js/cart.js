@@ -17,25 +17,60 @@ let PESO_SYMBOL = "UYU ";
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
 
+    let boxSubtotal = document.querySelector("#boxSubtotal")
+    let boxShipping = document.querySelector("#boxShipping")
+    let boxTotal = document.querySelector("#boxTotal")
+
+    let currentQuantity = document.querySelector("#currentCount").value
+    subtotal = productUnitCost * currentQuantity
+    let shippingCost = Math.floor(subtotal * shippingPercentage)
+    total = Math.floor(subtotal + shippingCost)
+
+    boxSubtotal.innerHTML = MONEY_SYMBOL + ` ` + subtotal
+    boxShipping.innerHTML = MONEY_SYMBOL + ` ` + shippingCost
+    boxTotal.innerHTML = MONEY_SYMBOL + ` ` + total
+
 }
 
 function updateSubtotal(cost){
 
     let subtotalHTML = document.querySelector("#currentSubtotal")
-    let subtotalBox = document.querySelector("#boxSubtotal")
     let count = document.querySelector("#currentCount").value
-    let newSubtotal = count * cost 
+    subtotal = count * cost
 
-    subtotalHTML.innerHTML = MONEY_SYMBOL + ` ` + newSubtotal
-    subtotalBox.innerHTML = MONEY_SYMBOL + ` ` + newSubtotal
+    subtotalHTML.innerHTML = MONEY_SYMBOL + ` ` + subtotal
     
 }
 
 function showPaymentTypeNotSelected(){
+    let cardRadio = document.querySelector("#creditCardPaymentRadio")
+    let bankRadio = document.querySelector("#bankingRadio")
+
+    let cardNumber = document.querySelector("#creditCardNumber")
+    let cardSecurityCode = document.querySelector("#creditCardSecurityCode")
+    let cardDate = document.querySelector("#dueDate")
+
+    let bankNumber = document.querySelector("#bankAccountNumber")
+
 
 }
 
 function hidePaymentTypeNotSelected(){
+
+    let cardNumber = document.querySelector("#creditCardNumber")
+    let cardSecurityCode = document.querySelector("#creditCardSecurityCode")
+    let cardDate = document.querySelector("#dueDate")
+
+    let bankNumber = document.querySelector("#bankAccountNumber")
+
+    cardNumber.disabled = true
+    cardSecurityCode.disabled = true 
+    cardDate.disabled = true 
+
+    bankNumber.disabled = true
+
+
+
 
 }
 
@@ -59,12 +94,13 @@ function showArticles(article){
 
         let currentCount = document.querySelector("#currentCount")
     
-        let articleCost = currentArticle.unitCost
+        productUnitCost = currentArticle.unitCost
     
-        updateSubtotal(articleCost)
+        updateSubtotal(productUnitCost)
 
         currentCount.addEventListener("change", function(){
-            updateSubtotal(articleCost)
+            updateSubtotal(productUnitCost)
+            updateTotalCosts()
         })
     }
 
@@ -81,10 +117,24 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             // Añadir items al carrito
             showArticles(cart.articles)
-
-
+            updateSubtotal(productUnitCost)
+            updateTotalCosts()
         }
         
+        // Actualizar costos de envío en tiempo real
+        document.querySelector("#premiumRadio").addEventListener("change", function(){
+            shippingPercentage = 0.15
+            updateTotalCosts()
+        })
+        document.querySelector("#expressRadio").addEventListener("change", function(){
+            shippingPercentage = 0.07
+            updateTotalCosts()
+        })
+        document.querySelector("#standardRadio").addEventListener("change", function(){
+            shippingPercentage = 0.05
+            updateTotalCosts()
+        })
+
 
     });
 

@@ -26,9 +26,9 @@ function updateTotalCosts(){
     let shippingCost = Math.floor(subtotal * shippingPercentage)
     total = Math.floor(subtotal + shippingCost)
 
-    boxSubtotal.innerHTML = MONEY_SYMBOL + ` ` + subtotal
-    boxShipping.innerHTML = MONEY_SYMBOL + ` ` + shippingCost
-    boxTotal.innerHTML = MONEY_SYMBOL + ` ` + total
+    boxSubtotal.innerHTML = `${MONEY_SYMBOL} ${subtotal}`
+    boxShipping.innerHTML = `${MONEY_SYMBOL} ${shippingCost}`
+    boxTotal.innerHTML = `${MONEY_SYMBOL} ${total}`
 
 }
 
@@ -38,39 +38,27 @@ function updateSubtotal(cost){
     let count = document.querySelector("#currentCount").value
     subtotal = count * cost
 
-    subtotalHTML.innerHTML = MONEY_SYMBOL + ` ` + subtotal
+    subtotalHTML.innerHTML = `${MONEY_SYMBOL} ${subtotal}`
     
 }
 
-function showPaymentTypeNotSelected(){
-    let cardRadio = document.querySelector("#creditCardPaymentRadio")
-    let bankRadio = document.querySelector("#bankingRadio")
+function hideCreditCardPaymentType(){
+    document.querySelector("#creditCardNumber").disabled = true
+    document.querySelector("#creditCardSecurityCode").disabled = true
+    document.querySelector("#expMonth").disabled = true 
+    document.querySelector("#expYear").disabled = true 
 
-    let cardNumber = document.querySelector("#creditCardNumber")
-    let cardSecurityCode = document.querySelector("#creditCardSecurityCode")
-    let cardDate = document.querySelector("#dueDate")
-
-    let bankNumber = document.querySelector("#bankAccountNumber")
-
-
+    document.querySelector("#bankAccountNumber").disabled = false
 }
 
-function hidePaymentTypeNotSelected(){
+function hideBankPaymentType(){
 
-    let cardNumber = document.querySelector("#creditCardNumber")
-    let cardSecurityCode = document.querySelector("#creditCardSecurityCode")
-    let cardDate = document.querySelector("#dueDate")
+    document.querySelector("#bankAccountNumber").disabled = true
 
-    let bankNumber = document.querySelector("#bankAccountNumber")
-
-    cardNumber.disabled = true
-    cardSecurityCode.disabled = true 
-    cardDate.disabled = true 
-
-    bankNumber.disabled = true
-
-
-
+    document.querySelector("#creditCardNumber").disabled = false 
+    document.querySelector("#creditCardSecurityCode").disabled = false
+    document.querySelector("#expMonth").disabled = false 
+    document.querySelector("#expYear").disabled = false 
 
 }
 
@@ -84,9 +72,9 @@ function showArticles(article){
 
         tableContent += `
         <tr>
-        <td><img src="`+ currentArticle.src + `" width="100" height="100">`+ currentArticle.name + `</td>
-        <td><div class="form-group w-25"><input type="number" value="`+ currentArticle.count + `" min="0" class="form-control" id="currentCount"></div></td>
-        <td>`+ currentArticle.currency + ` `+ currentArticle.unitCost + `</td>
+        <td><img src="${currentArticle.src}" width="100" height="100">${currentArticle.name}</td>
+        <td><div class="form-group w-25"><input type="number" value="${currentArticle.count}" min="0" class="form-control" id="currentCount"></div></td>
+        <td>${currentArticle.currency} ${currentArticle.unitCost}</td>
         <th id="currentSubtotal"> - </th>
         </tr>
         `

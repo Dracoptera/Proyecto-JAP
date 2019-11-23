@@ -98,6 +98,7 @@ function showArticles(article){
 }
 
 function validateSubmit() {
+    // Métodos de pago
     let cardNumber = document.querySelector("#creditCardNumber")
     let cvv = document.querySelector("#creditCardSecurityCode")
     let month = document.querySelector("#expMonth").value
@@ -109,12 +110,23 @@ function validateSubmit() {
     dateF = new Date(dateF)
     let today = new Date()
 
+    // Dirección 
+    let calle = document.querySelector("#formCalle").value
+    let num = document.querySelector("#formNumero").value
+
+    // Validación 
     if ((cardNumber !== "" && cardNumber.value.length === ccLength) && (cvv.value !== "" && cvv.value.length >= 3) && (dateF > today)) {
          paymentTypeSelected = true
-         alert(SUCCESS)
+     } else if 
+     (bank.value !== "" && bank.value.length === bankLength) {
+         paymentTypeSelected = true
      }
 
-
+     if ((calle !== "" && num !== "") && paymentTypeSelected) {
+         alert(SUCCESS) 
+     } else {
+         alert (ERROR_MSG)
+     }
 
 }
 

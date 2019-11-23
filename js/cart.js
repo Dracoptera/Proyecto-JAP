@@ -124,9 +124,11 @@ function validateSubmit() {
 
      if ((calle !== "" && num !== "") && paymentTypeSelected) {
          alert(SUCCESS) 
+         location="index.html"
      } else {
          alert (ERROR_MSG)
      }
+
 
 }
 

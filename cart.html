@@ -169,7 +169,7 @@
             No ha seleccionado. <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Seleccionar</button>
 
             <div class="m-3" id="confirmOrder">
-            <button class="btn btn-primary" type="submit">Finalizar compra</button>
+            <button class="btn btn-primary" id="purchaseBtn">Finalizar compra</button>
           </div>
 
       </div>
@@ -200,15 +200,15 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-6 mb-3">
-                      <label for="shippingStreet">Número de tarjeta</label>
-                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
+                      <label for="creditCardNumber">Número de tarjeta</label>
+                      <input type="text" class="form-control" id="creditCardNumber" placeholder="---- ---- ---- ----" value="" maxlength="16" onkeyup="this.value=this.value.replace(/[^\d]/,'')" disabled>
                       <div class="invalid-feedback">
                         Ingresa un número de tarjeta
                       </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                      <label for="shippingStreetNumber">Código de seg.</label>
-                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" >
+                      <label for="creditCardSecurityCode">Código de seg.</label>
+                      <input type="text" class="form-control" id="creditCardSecurityCode" placeholder="" value="" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d]/,'')" disabled>
                       <div class="invalid-feedback">
                         Ingresa el código de seguridad
                       </div>
@@ -220,7 +220,7 @@
                         <!-- <input type="text" class="form-control" id="dueDate" placeholder="" value="" > -->
                         <div class="form-group row" id="dueDate">
                           <div class="col-xs-2 p-2">
-                          <select class="form-control" id="expMonth">
+                          <select class="form-control" id="expMonth" disabled>
                               <option value="01">Enero</option>
                               <option value="02">Febrero </option>
                               <option value="03">Marzo</option>
@@ -236,13 +236,13 @@
                           </select>
                         </div>
                           <div class="col-xs-2 p-2">
-                          <select class="form-control" id="expYear">
-                              <option value="16"> 2019</option>
-                              <option value="17"> 2020</option>
-                              <option value="18"> 2021</option>
-                              <option value="19"> 2022</option>
-                              <option value="20"> 2023</option>
-                              <option value="21"> 2024</option>
+                          <select class="form-control" id="expYear" disabled>
+                              <option value="2019"> 2019</option>
+                              <option value="2020"> 2020</option>
+                              <option value="2021"> 2021</option>
+                              <option value="2022"> 2022</option>
+                              <option value="2023"> 2023</option>
+                              <option value="2024"> 2024</option>
                           </select>
                         </div>
                       </div>
@@ -266,7 +266,7 @@
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="bankAccountNumber">Número de cuenta</label>
-                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" maxlength="15" value="" onkeyup="this.value=this.value.replace(/[^\d]/,'')" disabled>
                       <div class="invalid-feedback">
                         Ingresa un número de cuenta
                       </div>

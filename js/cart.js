@@ -7,6 +7,7 @@ let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
+let SUCCESS = "¡Has completado la compra!"
 
 let MONEY_SYMBOL = "$";
 let DOLLAR_CURRENCY = "Dólares (USD)";
@@ -49,6 +50,7 @@ function hideCreditCardPaymentType(){
     document.querySelector("#expYear").disabled = true 
 
     document.querySelector("#bankAccountNumber").disabled = false
+
 }
 
 function hideBankPaymentType(){
@@ -59,6 +61,7 @@ function hideBankPaymentType(){
     document.querySelector("#creditCardSecurityCode").disabled = false
     document.querySelector("#expMonth").disabled = false 
     document.querySelector("#expYear").disabled = false 
+
 
 }
 
@@ -94,6 +97,27 @@ function showArticles(article){
 
 }
 
+function validateSubmit() {
+    let cardNumber = document.querySelector("#creditCardNumber")
+    let cvv = document.querySelector("#creditCardSecurityCode")
+    let month = document.querySelector("#expMonth").value
+    let year = document.querySelector("#expYear").value
+    let bank = document.querySelector("#bankAccountNumber")
+    let ccLength = 16
+    let bankLength = 15
+    let dateF = `${year}, ${month}`
+    dateF = new Date(dateF)
+    let today = new Date()
+
+    if ((cardNumber !== "" && cardNumber.value.length === ccLength) && (cvv.value !== "" && cvv.value.length >= 3) && (dateF > today)) {
+         paymentTypeSelected = true
+         alert(SUCCESS)
+     }
+
+
+
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -123,6 +147,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             updateTotalCosts()
         })
 
+
+        document.querySelector("#purchaseBtn").addEventListener("click", function(){
+            validateSubmit()
+        })
 
     });
 
